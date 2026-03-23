@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - CarePing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .thankyou-container {
+      max-width: 500px;
+      width: 100%;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .thankyou-card {
+      background: white;
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e9ecef;
+    }
+
+    .checkmark-circle {
+      width: 80px;
+      height: 80px;
+      background: #075E54;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: scaleIn 0.4s ease-out 0.2s both;
+    }
+
+    .checkmark {
+      color: white;
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #212529;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #6c757d;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .btn-home {
+      display: inline-block;
+      background: #075E54;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-home:hover {
+      background: #054a44;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(7, 94, 84, 0.3);
+    }
+
+    .whatsapp-link {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e9ecef;
+    }
+
+    .whatsapp-link a {
+      color: #25D366;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .whatsapp-link a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .thankyou-card {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="thankyou-container">
+    <div class="thankyou-card">
+      <div class="checkmark-circle">
+        <div class="checkmark">✓</div>
+      </div>
+      <h1>Thank You!</h1>
+      <p>Your demo request has been sent successfully.<br>We'll contact you within 24 hours.</p>
+      <a href="index.html" class="btn-home">← Back to Home</a>
+      <div class="whatsapp-link">
+        <a href="#" id="whatsappThankYou">
+          <i class="fab fa-whatsapp"></i> Need immediate assistance? Chat with us
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // WhatsApp button for thank you page
+    const whatsappBtn = document.getElementById('whatsappThankYou');
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const phoneNumber = '27712270679';
+        const message = encodeURIComponent('Hi! I just submitted a demo request and wanted to follow up.');
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+      });
+    }
+  </script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+
+</html>

@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>CarePing — WhatsApp Clinic Assistant | 24/7 Automated Booking</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="CarePingFavicon.png">
+  <link rel="shortcut icon" type="image/png" href="CarePingFavicon.png">
+  <link rel="apple-touch-icon" href="CarePingFavicon.png">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
     rel="stylesheet">
@@ -13,21 +19,6 @@
 </head>
 
 <body>
-
-  <!-- <?php
-  if (isset($_GET['success']) && $_GET['success'] == 1) {
-      echo '<div class="notification success">
-              <i class="fas fa-check-circle"></i> 
-              ✅ Thank you! Your demo request has been sent. We\'ll contact you within 24 hours.
-            </div>';
-  }
-  if (isset($_GET['error']) && $_GET['error'] == 1) {
-      echo '<div class="notification error">
-              <i class="fas fa-exclamation-circle"></i> 
-              ❌ Something went wrong. Please try again or contact us on WhatsApp.
-            </div>';
-  }
-  ?> -->
 
 <header class="site-header">
   <div class="container header-container">
@@ -363,7 +354,7 @@
           <div class="integration-icons">
             <div class="integration"><i class="fab fa-whatsapp"></i> WhatsApp Business API</div>
             <div class="integration"><i class="fab fa-google"></i> Google Calendar</div>
-            <div class="integration"><i class="fas fa-database"></i> Secure Database (AES-256)</div>
+            <div class="integration"><i class="fas fa-database"></i> Secure Database</div>
           </div>
         </div>
 
@@ -434,7 +425,7 @@
         <div class="contact-details-row">
           <div class="contact-detail-item">
             <i class="fas fa-envelope"></i>
-            <span>hello@careping.com</span>
+            <span>hello@careping.co.za</span>
           </div>
           <div class="contact-detail-item">
             <i class="fas fa-phone-alt"></i>
@@ -449,15 +440,15 @@
     </div>
 
     <div class="contact-form-card">
-      <form action="send-email.php" method="POST" id="demoForm">
+      <form action="https://formspree.io/f/mkoqdwqy" method="POST">
         <h3>Request a demo</h3>
 
         <div class="form-group">
-          <input type="text" name="full_name" placeholder="Full name *" required>
+          <input type="text" name="name" placeholder="Full name *" required>
         </div>
 
         <div class="form-group">
-          <input type="text" name="clinic_name" placeholder="Clinic / Practice name *" required>
+          <input type="text" name="clinic" placeholder="Clinic / Practice name *" required>
         </div>
 
         <div class="form-group">
@@ -473,7 +464,10 @@
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Book a Demo →</button>
-        <p class="form-note">We'll respond within 24 hours.</p>
+        <p class="form-note">We'll respond within 24 hours. No spam.</p>
+
+        <input type="hidden" name="_redirect" value="thank-you.html">
+        <input type="text" name="_gotcha" style="display:none">
       </form>
     </div>
   </div>
@@ -500,7 +494,7 @@
     </div>
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p><i class="fas fa-envelope"></i> hello@careping.com</p>
+      <p><i class="fas fa-envelope"></i> hello@careping.co.za</p>
       <p><i class="fab fa-whatsapp"></i> +27 71 227 0679</p>
       <p><i class="fas fa-map-marker-alt"></i> Remote health tech</p>
     </div>

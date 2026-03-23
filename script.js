@@ -124,11 +124,7 @@ whatsappBtns.forEach(btn => {
   });
 });
 
-// ===== REMOVED THE MAILTO FORM HANDLING CODE =====
-// The form now uses PHP (send-email.php), so no JavaScript needed for form submission
-// The form will submit normally to the PHP file
-
-// Auto-hide notifications after 5 seconds (for PHP success/error messages)
+// Auto-hide notifications after 5 seconds
 setTimeout(() => {
   const notifications = document.querySelectorAll('.notification');
   notifications.forEach(notification => {
@@ -202,3 +198,45 @@ document.addEventListener('DOMContentLoaded', () => {
   
   console.log('Site loaded successfully!');
 });
+
+// ===== FORMSPREE FORM HANDLING WITH REDIRECT =====
+// This handles the contact form submission and redirects to thank-you.html
+const contactForm = document.querySelector('form[action="https://formspree.io/f/mkoqdwqy"]');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Success - redirect to thank you page
+        window.location.href = 'thank-you.html';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      // Error - show alert
+      alert('❌ Something went wrong. Please try again or contact us on WhatsApp.');
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+}
