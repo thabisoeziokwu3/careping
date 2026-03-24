@@ -1,4 +1,3 @@
-// Mobile menu toggle
 const mobileToggle = document.getElementById('mobileToggle');
 const mainNav = document.getElementById('mainNav');
 
@@ -8,7 +7,6 @@ if (mobileToggle) {
   });
 }
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const targetId = this.getAttribute('href');
@@ -24,7 +22,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Demo carousel
 let currentStep = 0;
 const steps = document.querySelectorAll('.demo-step');
 const prevBtn = document.getElementById('demoPrev');
@@ -58,7 +55,6 @@ if (prevBtn && nextBtn && steps.length) {
   updateDemo();
 }
 
-// Count-up animation for stats
 const countUpElements = document.querySelectorAll('.count-up');
 
 const animateCountUp = (element) => {
@@ -85,7 +81,6 @@ const animateCountUp = (element) => {
   updateCount();
 };
 
-// Intersection Observer for scroll animations
 const observerOptions = {
   threshold: 0.2,
   rootMargin: '0px'
@@ -113,18 +108,16 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
   el.style.opacity = '1';
 });
 
-// WhatsApp buttons with your specific number
 const whatsappBtns = document.querySelectorAll('#whatsappDemoCta, #whatsappContactBtn');
 whatsappBtns.forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    const phoneNumber = '27712270679';
+    const phoneNumber = '27639703380';
     const message = encodeURIComponent('Hi! I\'m interested in CarePing for my clinic. Can we discuss?');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   });
 });
 
-// Auto-hide notifications after 5 seconds
 setTimeout(() => {
   const notifications = document.querySelectorAll('.notification');
   notifications.forEach(notification => {
@@ -135,7 +128,6 @@ setTimeout(() => {
   });
 }, 5000);
 
-// Add hover effect for cards
 const hoverElements = document.querySelectorAll('.hover-lift, .benefit-card, .feature-card, .timeline-card');
 
 hoverElements.forEach(el => {
@@ -143,7 +135,6 @@ hoverElements.forEach(el => {
   el.style.transform = 'translateY(0)';
 });
 
-// Add scroll to top button
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
@@ -182,7 +173,6 @@ const addScrollToTopButton = () => {
 
 addScrollToTopButton();
 
-// Fix for any elements that might have been hidden
 document.addEventListener('DOMContentLoaded', () => {
   const allSections = document.querySelectorAll('section');
   allSections.forEach(section => {
@@ -199,8 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Site loaded successfully!');
 });
 
-// ===== FORMSPREE FORM HANDLING WITH REDIRECT =====
-// This handles the contact form submission and redirects to thank-you.html
 const contactForm = document.querySelector('form[action="https://formspree.io/f/mkoqdwqy"]');
 
 if (contactForm) {
@@ -210,11 +198,9 @@ if (contactForm) {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
-    // Show loading state
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
     
-    // Get form data
     const formData = new FormData(contactForm);
     
     try {
@@ -227,13 +213,11 @@ if (contactForm) {
       });
       
       if (response.ok) {
-        // Success - redirect to thank you page
         window.location.href = 'thank-you.html';
       } else {
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      // Error - show alert
       alert('❌ Something went wrong. Please try again or contact us on WhatsApp.');
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;

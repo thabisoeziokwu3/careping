@@ -1747,7 +1747,6 @@ button,
   }
 }
 
-/* Auto-hide notification after 5 seconds */
 .notification {
   animation: slideInRight 0.3s ease-out, fadeOut 0.5s ease-out 4.5s forwards;
 }
