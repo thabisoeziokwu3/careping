@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You - CarePing</title>
+  <title>Thank You — CarePing</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="CarePingFavicon.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,7 +20,7 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+      background: #082E2A;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,92 +28,100 @@
       padding: 20px;
     }
 
-    .thankyou-container {
-      max-width: 500px;
+    .card {
+      max-width: 440px;
       width: 100%;
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .thankyou-card {
-      background: white;
-      border-radius: 24px;
-      padding: 48px 32px;
+      background: #F4F7F5;
+      border-radius: 28px;
+      padding: 48px 36px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e9ecef;
+      box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.5);
+      animation: rise 0.5s ease-out;
     }
 
-    .checkmark-circle {
-      width: 80px;
-      height: 80px;
-      background: #075E54;
+    .tick-circle {
+      width: 72px;
+      height: 72px;
+      background: #0B6E63;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      animation: scaleIn 0.4s ease-out 0.2s both;
+      margin: 0 auto 22px;
+      position: relative;
     }
 
-    .checkmark {
+    .tick-circle::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid #FF4D6D;
+      opacity: 0.5;
+      animation: pulse 2.2s ease-out infinite;
+    }
+
+    .tick-circle i {
       color: white;
-      font-size: 48px;
-      font-weight: bold;
+      font-size: 28px;
     }
 
     h1 {
-      font-size: 28px;
-      color: #212529;
-      margin-bottom: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      color: #0E2622;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
 
     p {
-      color: #6c757d;
+      color: #587670;
       line-height: 1.6;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
+      font-size: 0.98rem;
     }
 
     .btn-home {
       display: inline-block;
-      background: #075E54;
+      background: #0B6E63;
       color: white;
-      padding: 12px 32px;
-      border-radius: 40px;
+      padding: 12px 30px;
+      border-radius: 100px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s;
-      margin-top: 8px;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
     }
 
     .btn-home:hover {
-      background: #054a44;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(7, 94, 84, 0.3);
+      background: #0F857A;
     }
 
-    .whatsapp-link {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid #e9ecef;
+    .wa-link {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid #DCE6E2;
     }
 
-    .whatsapp-link a {
+    .wa-link a {
       color: #25D366;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 0.92rem;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
 
-    .whatsapp-link a:hover {
+    .wa-link a:hover {
       text-decoration: underline;
     }
 
-    @keyframes fadeInUp {
+    @keyframes rise {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
 
       to {
@@ -116,42 +130,38 @@
       }
     }
 
-    @keyframes scaleIn {
-      from {
-        transform: scale(0);
+    @keyframes pulse {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.6;
       }
 
-      to {
-        transform: scale(1);
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
       }
     }
 
-    @media (max-width: 768px) {
-      .thankyou-card {
-        padding: 32px 24px;
+    @media (prefers-reduced-motion: reduce) {
+      .card {
+        animation: none;
       }
 
-      h1 {
-        font-size: 24px;
+      .tick-circle::after {
+        animation: none;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="thankyou-container">
-    <div class="thankyou-card">
-      <div class="checkmark-circle">
-        <div class="checkmark">✓</div>
-      </div>
-      <h1>Thank You!</h1>
-      <p>Your demo request has been sent successfully.<br>We'll contact you within 24 hours.</p>
-      <a href="index.html" class="btn-home">← Back to Home</a>
-      <div class="whatsapp-link">
-        <a href="#" id="whatsappThankYou">
-          <i class="fab fa-whatsapp"></i> Need immediate assistance? Chat with us
-        </a>
-      </div>
+  <div class="card">
+    <div class="tick-circle"><i class="fas fa-check"></i></div>
+    <h1>Message sent</h1>
+    <p>Your demo request is in. We'll be in touch within 24 hours — usually sooner.</p>
+    <a href="index.html" class="btn-home">Back to home</a>
+    <div class="wa-link">
+      <a href="#" id="whatsappThankYou"><i class="fab fa-whatsapp"></i> Need it sooner? Chat with us now</a>
     </div>
   </div>
 
@@ -166,7 +176,6 @@
       });
     }
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </body>
 
 </html>
