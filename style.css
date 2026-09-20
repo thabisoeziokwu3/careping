@@ -539,14 +539,14 @@ a {
   margin-top: 0.6rem;
 }
 
-/* ===== HERO ===== */
 .hero {
   background: var(--teal-deep);
   color: var(--white);
   border-radius: 0 0 var(--r-lg) var(--r-lg);
   position: relative;
   overflow: hidden;
-  padding-top: 56px;
+  margin-top: -86px;
+  padding-top: 142px;
   padding-bottom: 0;
 }
 
@@ -629,7 +629,7 @@ a {
 
 @media (max-width: 900px) {
   .hero {
-    padding-top: 28px;
+    padding-top: 114px;
     border-radius: 0 0 var(--r-md) var(--r-md);
   }
 
